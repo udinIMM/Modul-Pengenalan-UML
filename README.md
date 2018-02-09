@@ -41,9 +41,9 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
 2.	Ketikkan **nano topologi.sh**<br>
 3.	Sintaks yang digunakan adalah sebagai berikut:<br>
   **a.	Membuat switch:**<br>
-    `uml_switch –unix `<span style="color:red">namaswitch</span>` > /dev/null < /dev/null &`<br>
+    `uml_switch –unix `**namaswitch**` > /dev/null < /dev/null &`<br>
   **b.	Membuat router dan client:**<br>
-    `xterm –T `<span style="color:red">namadevice</span>` –e linux ubd0=`<span style="color:red">namadevice</span>`,jarkom umid=`<span style="color:red">namadevice</span>` eth0=daemon,,, `<span style="color:red">namaswitch</span>` mem=96M &`<br>
+    `xterm –T `**namadevice**` –e linux ubd0=`**namadevice**`,jarkom umid=namadevice eth0=daemon,,, namaswitch mem=96M &`<br>
     <br>
     Keterangan:
       -	Sintaks untuk membuat router dan klien hampir sama, yang membedakan adalah jumlah eth nya, eth pada router biasanya lebih dari 1.
