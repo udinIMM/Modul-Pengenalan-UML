@@ -36,17 +36,34 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
     Contoh: Username -> d1<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password -> praktikum**
 ## Membuat Topologi Jaringan yang Akan Digunakan
-![Topologi](/images/006a.PNG)
+![Topologi CPT](/images/006a.PNG)
 1.	Setelah login, buat file script dengan ekstensi **.sh** yang akan digunakan untuk menyimpan script membuat **router, switch, dan client**. Misalkan kita buat **topologi.sh**<br>
 2.	Ketikkan **nano topologi.sh**<br>
 3.	Sintaks yang digunakan adalah sebagai berikut:<br>
   **a.	Membuat switch:**<br>
     `uml_switch –unix `**namaswitch**` > /dev/null < /dev/null &`<br>
   **b.	Membuat router dan client:**<br>
-    `xterm –T `**namadevice**` –e linux ubd0=`**namadevice**`,jarkom umid=namadevice eth0=daemon,,, namaswitch mem=96M &`<br>
+    `xterm –T `**namadevice**` –e linux ubd0=`**namadevice**`,jarkom umid=`**namadevice**` eth0=daemon,,,`**namaswitch**` mem=96M &`<br>
     <br>
     Keterangan:
       -	Sintaks untuk membuat router dan klien hampir sama, yang membedakan adalah jumlah eth nya, eth pada router biasanya lebih dari 1.
       - **Jarkom** adalah iso UML yang digunakan.
-      - Pembuatan jumlah router, switch, client dan banyaknya eth disesuaikan dengan topologi yang diminta.
-4.	Untuk topologi sesuai gambar, maka sintaks untuk file topologi.sh adalah
+      - Pembuatan jumlah router, switch, client dan banyaknya eth disesuaikan dengan topologi yang diminta.<br>
+4.	Untuk topologi sesuai gambar, maka sintaks untuk file **topologi.sh** adalah
+  ![Topologi.sh](/images/007.PNG)
+  ```shell
+  #switch
+  uml_switch -unix switch1 > /dev/null < /dev/null &
+  uml_switch -unix switch2 > /dev/null < /dev/null &
+
+  #router
+  xterm -T GEBANG -e linux ubd0=GEBANG,jarkom umid=GEBANG eth0=tuntap,,,'ip_tuntap_tiap_kelompok' eth1=daemon,,,switch1 eth2=daemon,,,switch2 mem=96M &
+  #dns + web server
+  xterm -T KLAMPIS -e linux ubd0=KLAMPIS,jarkom umid=KLAMPIS eth0=daemon,,,switch1 mem=96M &
+  xterm -T PUCANG -e linux ubd0=PUCANG,jarkom umid=PUCANG eth0=daemon,,,switch1 mem=96M &
+  #client
+  xterm -T NGAGEL -e linux ubd0=NGAGEL,jarkom umid=NGAGEL eth0=daemon,,,switch2 mem=96M &
+  xterm -T NGINDEN -e linux ubd0=NGINDEN,jarkom umid=NGINDEN eth0=daemon,,,switch2 mem=96M &
+  ```
+5.	Kemudian jalankan script tersebut dengan perintah **bash topologi.sh**
+  ![GEBANG login](/images/008.PNG)
