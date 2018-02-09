@@ -1,9 +1,9 @@
-# Modul-Pengenalan-UML
-## Apakah UML itu?
+## Modul-Pengenalan-UML
+### Apakah UML itu?
 UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan kita untuk membuat simulasi jaringan virtual yang biasa terdiri dari host, router, switch.
 
-## Instalasi UML
-### 1. Untuk Windows 
+### Instalasi UML
+#### 1. Untuk Windows 
   - **Download Putty**<br>
     Silahkan ambil di drive http://bit.ly/JARKOM2018 . Atau download dari webnya -> http://www.putty.org/
   - **Download Xming**<br>
@@ -26,7 +26,7 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password -> praktikum**<br>
     Jika berhasil akan muncul seperti gambar dibawah ini
     ![PuTTY d1](/images/005.PNG)
-### 2. Untuk Linux
+#### 2. Untuk Linux
   - Buka terminal, ketikkan **ssh -X [nama_kelompok]@[ip_sesuai_kelas]<br>
     Contoh: ssh -X d1@10.151.36.201**
   - Kemudian masukkan password kelompok kalian<br>
@@ -35,7 +35,7 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
   - Login dengan **[nama_kelompok]** dan password **praktikum<br>
     Contoh: Username -> d1<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password -> praktikum**
-## Membuat Topologi Jaringan yang Akan Digunakan
+### Membuat Topologi Jaringan yang Akan Digunakan
 ![Topologi CPT](/images/006a.PNG)
 1.	Setelah login, buat file script dengan ekstensi **.sh** yang akan digunakan untuk menyimpan script membuat **router, switch, dan client**. Misalkan kita buat **topologi.sh**<br>
 2.	Ketikkan **nano topologi.sh**<br>
