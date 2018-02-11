@@ -171,7 +171,6 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
   A13 | 10.151.72.84/30 | 10.151.73.168/29
   A14 | 10.151.72.88/30 | 10.151.73.176/29
   A15 | 10.151.72.92/30 | 10.151.73.184/29
-<br>
 ### KELAS B
   KELOMPOK | NID TUNTAP | NID DMZ
   ---------|------------|--------
@@ -192,7 +191,6 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
   B15 | 10.151.74.64/30 | 10.151.83.128/29
   B16 | 10.151.74.68/30 | 10.151.83.136/29
   B17 | 10.151.74.72/30 | 10.151.83.144/29
-<br>
 ### KELAS C
   KELOMPOK | NID TUNTAP | NID DMZ
   ---------|------------|--------
@@ -213,7 +211,6 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
   C15 | 10.151.76.64/30 | 10.151.77.128/29
   C16 | 10.151.76.68/30 | 10.151.77.136/29
   C17 | 10.151.76.72/30 | 10.151.77.144/29
-<br>
 ### KELAS D
   KELOMPOK | NID TUNTAP | NID DMZ
   ---------|------------|--------
@@ -236,7 +233,6 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
   D17 | 10.151.78.72/30 | 10.151.79.144/29
   D18 | 10.151.78.76/30 | 10.151.79.152/29
   D19 | 10.151.78.80/30 | 10.151.79.160/29
-<br>
 ### KELAS E
   KELOMPOK | NID TUNTAP | NID DMZ
   ---------|------------|--------
