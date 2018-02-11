@@ -125,7 +125,7 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
   netmask 255.255.255.248
   gateway 'ip_eth1_GEBANG_tiap_kelompok'
   ```
-  **Keterangan**:
+  **Keterangan**:<br>
     - **Ip_eth0_GEBANG_tiap_kelompok** = NID_tuntap_tiap_kelompok + 2
     - **Ip_tuntap_tiap_kelompo**k = NID_tuntap_tiap_kelompok + 1
     - **Ip_eth1_GEBANG_tiap_kelompok** = NID_DMZ_tiap_kelompok + 1
