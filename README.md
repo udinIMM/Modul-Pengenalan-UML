@@ -45,7 +45,7 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
   **b.	Membuat router dan client:**<br>
     `xterm –T `**namadevice**` –e linux ubd0=`**namadevice**`,jarkom umid=`**namadevice**` eth0=daemon,,,`**namaswitch**` mem=96M &`<br>
     <br>
-    Keterangan:
+    **Keterangan**:
       -	Sintaks untuk membuat router dan klien hampir sama, yang membedakan adalah jumlah eth nya, eth pada router biasanya lebih dari 1.
       - **Jarkom** adalah iso UML yang digunakan.
       - Pembuatan jumlah router, switch, client dan banyaknya eth disesuaikan dengan topologi yang diminta.<br>
@@ -66,7 +66,7 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
   xterm -T NGINDEN -e linux ubd0=NGINDEN,jarkom umid=NGINDEN eth0=daemon,,,switch2 mem=96M &
   ```
   **Keterangan:** Jangan lupa mengubah ***'ip_tuntap_tiap_kelompok'*** terlebih dahulu dan sesuai kelompok masing-masing.<br>
-5.	Kemudian jalankan script tersebut dengan perintah **bash topologi.sh**.<br>
+5. Kemudian jalankan script tersebut dengan perintah **bash topologi.sh**.<br>
   ![GEBANG login](/images/008.PNG)<br>
 6.	Setelah muncul seperti gambar diatas, login di masing-masing router dan client menggunakan **username = root dan password = praktikum**.<br>
   ![GEBANG root](/images/009.PNG)<br>
@@ -126,11 +126,11 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
   gateway 'ip_eth1_GEBANG_tiap_kelompok'
   ```
   **Keterangan**:<br>
-    - **Ip_eth0_GEBANG_tiap_kelompok** = NID_tuntap_tiap_kelompok + 2<br>
-    - **Ip_tuntap_tiap_kelompo**k = NID_tuntap_tiap_kelompok + 1<br>
-    - **Ip_eth1_GEBANG_tiap_kelompok** = NID_DMZ_tiap_kelompok + 1<br>
-    - **Ip_KLAMPIS_tiap_kelompok** = NID_DMZ_tiap_kelompok + 2<br>
-    - **Ip_PUCANG_tiap_kelompok** = NID_DMZ_tiap_kelompok + 3<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **Ip_eth0_GEBANG_tiap_kelompok** = NID_tuntap_tiap_kelompok + 2<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **Ip_tuntap_tiap_kelompo**k = NID_tuntap_tiap_kelompok + 1<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **Ip_eth1_GEBANG_tiap_kelompok** = NID_DMZ_tiap_kelompok + 1<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **Ip_KLAMPIS_tiap_kelompok** = NID_DMZ_tiap_kelompok + 2<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **Ip_PUCANG_tiap_kelompok** = NID_DMZ_tiap_kelompok + 3<br>
 10.	Restart network pada setiap router dan host dengan mengetikkan **service networking restart** atau **/etc/init.d/networking restart**.<br>
 11.	Coba cek IP pada setiap router dan host dengan mengetikkan **ifconfig**. Jika sudah mendapatkan IP seperti gambar dibawah, setting IP yang kalian lakukan benar.<br>
   ![ifconfig](/images/011a.PNG)<br>
