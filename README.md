@@ -136,9 +136,20 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
   ![ifconfig](/images/011a.PNG)
 12.	Topologi yang kalian buat sudah bisa berjalan secara lokal, tetapi kalian belum bisa mengakses jaringan keluar. Ketikkan **iptables –t nat –A POSTROUTING –o eth0 –j MASQUERADE –s 192.168.0.0/16** pada router **GEBANG**.
   ![iptables](/images/012.PNG)
-13.	Coba test di semua router dan client dengan melakukan **ping its.ac.id** atau **ping 10.151.36.1** dari masing-masing host untuk mengecek apakah pengaturan anda benar atau tidak
+13.	Coba test di semua router dan client dengan melakukan **ping its.ac.id** atau **ping 10.151.36.1** dari masing-masing host untuk mengecek apakah pengaturan anda benar atau tidak.
   ![iptables](/images/013.PNG)
 14.	Export proxy di uml kalian terlebih dahulu dengan syntax seperti dibawah ini:
-  `export http_proxy=”http://`<span style="color:red;">[emailitsanda]`%40`mhs.if.its.ac.id`:`password`@`proxy.its.ac.id`:`8080</span>`”;`
-  export https_proxy=”http://[emailitsanda]%40mhs.if.its.ac.id:password@proxy.its.ac.id:8080”;
-  export ftp_proxy=”http://[emailitsanda]%40mhs.if.its.ac.id:password@proxy.its.ac.id:8080”;
+  `export http_proxy=”http://`**[emailitsanda]**`%40`**mhs.if.its.ac.id**`:`**[passwordemail]**`@`**proxy.its.ac.id**`:`**8080**`”;`<br>
+  `export https_proxy=”http://`**[emailitsanda]**`%40`**mhs.if.its.ac.id**`:`**[passwordemail]**`@`**proxy.its.ac.id**`:`**8080**`”;`<br>
+  `export ftp_proxy=”http://`**[emailitsanda]**`%40`**mhs.if.its.ac.id**`:`**[passwordemail]**`@`**proxy.its.ac.id**`:`**8080**`”;`<br>
+15.	Setelah itu, lakukan update pada semua router dan host dengan mengetikkan **apt-get update**.<br>
+16.	Terakhir, untuk mematikan router dan client jangan langsung di close. Ketikkan **halt** di semua router dan client untuk mematikkannya. Atau buat script dengan ekstensi .sh supaya mempermudah kalian dalam mematikannya. Misal buat script dengan nama **bye.sh**, dan tuliskan sintaks seperti dibawah ini: Save script yang ada buat dan jalankan dengan mengetikkan **bash bye.sh**.
+  ![bye.sh](/images/014.PNG)
+  **Keterangan**: <br>
+    - **Netmask**: Netmask adalah mask 32-bit yang digunakan untuk membagi alamat IP menjadi subnet dan menentukan host yang tersedia pada jaringan.<br>
+    - **IP Tuntap**: TUN yang merupakan kependekan dari Tunneling mensimulasikan layer 3, sedangkan TAP yang berarti Network Tap mensimulasikan layer 2. TUN berfungsi untuk routing, sedangkan TAP berfungsi sebagai network bridge.<br>
+    - **DMZ**: DMZ adalah kependekan dari Demilitarized Zone, suatu area yang digunakan berinteraksi dengan pihak luar. Di dalam jaringan komputer, DMZ merupakan suatu sub network yang terpisah dari sub network internal untuk keperluan keamanan.<br>
+    - **Iptables**: Iptables merupakan suatu tools dalam sistem operasi linux yang berfungsi sebagai filter terhadap lalu lintas data. Dengan iptables inilah kita akan mengatur semua lalulintas dalam komputer, baik yang masuk, keluar, maupun yang sekedar melewati komputer kita. Untuk penjelasan lebih lanjut nanti akan kita bahas di modul 5.<br>
+      **Sintaks pada IPTables: `iptables [-t table] command [match] [target/jump]`**<br>
+      **Contoh: iptables –t nat –A POSTROUTING –o eth0 –j MASQUERADE**<br>
+#**PEMBAGIAN NID TUNTAP DAN NID DMZ**<br>
