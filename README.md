@@ -49,8 +49,8 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
       -	Sintaks untuk membuat router dan klien hampir sama, yang membedakan adalah jumlah eth nya, eth pada router biasanya lebih dari 1.
       - **Jarkom** adalah iso UML yang digunakan.
       - Pembuatan jumlah router, switch, client dan banyaknya eth disesuaikan dengan topologi yang diminta.<br>
-4.	Untuk topologi sesuai gambar, maka sintaks untuk file **topologi.sh** adalah
-  ![Topologi.sh](/images/007.PNG)
+4.	Untuk topologi sesuai gambar, maka sintaks untuk file **topologi.sh** adalah<br>
+  ![Topologi.sh](/images/007.PNG)<br>
   ```shell
   #switch
   uml_switch -unix switch1 > /dev/null < /dev/null &
@@ -66,13 +66,13 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
   xterm -T NGINDEN -e linux ubd0=NGINDEN,jarkom umid=NGINDEN eth0=daemon,,,switch2 mem=96M &
   ```
   **Keterangan:** Jangan lupa mengubah ***'ip_tuntap_tiap_kelompok'*** terlebih dahulu dan sesuai kelompok masing-masing.<br>
-5.	Kemudian jalankan script tersebut dengan perintah **bash topologi.sh**.
-  ![GEBANG login](/images/008.PNG)
-6.	Setelah muncul seperti gambar diatas, login di masing-masing router dan client menggunakan **username = root dan password = praktikum**.
-  ![GEBANG root](/images/009.PNG)
+5.	Kemudian jalankan script tersebut dengan perintah **bash topologi.sh**.<br>
+  ![GEBANG login](/images/008.PNG)<br>
+6.	Setelah muncul seperti gambar diatas, login di masing-masing router dan client menggunakan **username = root dan password = praktikum**.<br>
+  ![GEBANG root](/images/009.PNG)<br>
 7.	Di router **GEBANG** lakukan setting sysctl dengan mengetik perintah **nano /etc/sysctl.conf**.<br>
-8.	Hilangkan tanda pagar (#) pada bagian **net.ipv4.ip_forward=1**.
-  ![GEBANG sysctl](/images/010a.PNG)
+8.	Hilangkan tanda pagar (#) pada bagian **net.ipv4.ip_forward=1**.<br>
+  ![GEBANG sysctl](/images/010a.PNG)<br>
   Lalu ketikkan **sysctl –p** untuk mengaktifkan perubahan yang ada.<br>
 9.	Setting IP di setiap router dan client dengan mengetikkan **nano /etc/network/interfaces**. Lalu seting IPnya sebagai berikut:<br>
   **Setting IP pada GEBANG (Sebagai Router)**.
@@ -126,25 +126,25 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
   gateway 'ip_eth1_GEBANG_tiap_kelompok'
   ```
   **Keterangan**:<br>
-    - **Ip_eth0_GEBANG_tiap_kelompok** = NID_tuntap_tiap_kelompok + 2
-    - **Ip_tuntap_tiap_kelompo**k = NID_tuntap_tiap_kelompok + 1
-    - **Ip_eth1_GEBANG_tiap_kelompok** = NID_DMZ_tiap_kelompok + 1
-    - **Ip_KLAMPIS_tiap_kelompok** = NID_DMZ_tiap_kelompok + 2
+    - **Ip_eth0_GEBANG_tiap_kelompok** = NID_tuntap_tiap_kelompok + 2<br>
+    - **Ip_tuntap_tiap_kelompo**k = NID_tuntap_tiap_kelompok + 1<br>
+    - **Ip_eth1_GEBANG_tiap_kelompok** = NID_DMZ_tiap_kelompok + 1<br>
+    - **Ip_KLAMPIS_tiap_kelompok** = NID_DMZ_tiap_kelompok + 2<br>
     - **Ip_PUCANG_tiap_kelompok** = NID_DMZ_tiap_kelompok + 3<br>
 10.	Restart network pada setiap router dan host dengan mengetikkan **service networking restart** atau **/etc/init.d/networking restart**.<br>
-11.	Coba cek IP pada setiap router dan host dengan mengetikkan **ifconfig**. Jika sudah mendapatkan IP seperti gambar dibawah, setting IP yang kalian lakukan benar.
-  ![ifconfig](/images/011a.PNG)
-12.	Topologi yang kalian buat sudah bisa berjalan secara lokal, tetapi kalian belum bisa mengakses jaringan keluar. Ketikkan **iptables –t nat –A POSTROUTING –o eth0 –j MASQUERADE –s 192.168.0.0/16** pada router **GEBANG**.
-  ![iptables](/images/012.PNG)
-13.	Coba test di semua router dan client dengan melakukan **ping its.ac.id** atau **ping 10.151.36.1** dari masing-masing host untuk mengecek apakah pengaturan anda benar atau tidak.
-  ![iptables](/images/013.PNG)
-14.	Export proxy di uml kalian terlebih dahulu dengan syntax seperti dibawah ini:
+11.	Coba cek IP pada setiap router dan host dengan mengetikkan **ifconfig**. Jika sudah mendapatkan IP seperti gambar dibawah, setting IP yang kalian lakukan benar.<br>
+  ![ifconfig](/images/011a.PNG)<br>
+12.	Topologi yang kalian buat sudah bisa berjalan secara lokal, tetapi kalian belum bisa mengakses jaringan keluar. Ketikkan **iptables –t nat –A POSTROUTING –o eth0 –j MASQUERADE –s 192.168.0.0/16** pada router **GEBANG**.<br>
+  ![iptables](/images/012.PNG)<br>
+13.	Coba test di semua router dan client dengan melakukan **ping its.ac.id** atau **ping 10.151.36.1** dari masing-masing host untuk mengecek apakah pengaturan anda benar atau tidak.<br>
+  ![iptables](/images/013.PNG)<br>
+14.	Export proxy di uml kalian terlebih dahulu dengan syntax seperti dibawah ini:<br>
   `export http_proxy=”http://`**[emailitsanda]**`%40`**mhs.if.its.ac.id**`:`**[passwordemail]**`@`**proxy.its.ac.id**`:`**8080**`”;`<br>
   `export https_proxy=”http://`**[emailitsanda]**`%40`**mhs.if.its.ac.id**`:`**[passwordemail]**`@`**proxy.its.ac.id**`:`**8080**`”;`<br>
   `export ftp_proxy=”http://`**[emailitsanda]**`%40`**mhs.if.its.ac.id**`:`**[passwordemail]**`@`**proxy.its.ac.id**`:`**8080**`”;`<br>
 15.	Setelah itu, lakukan update pada semua router dan host dengan mengetikkan **apt-get update**.<br>
-16.	Terakhir, untuk mematikan router dan client jangan langsung di close. Ketikkan **halt** di semua router dan client untuk mematikkannya. Atau buat script dengan ekstensi .sh supaya mempermudah kalian dalam mematikannya. Misal buat script dengan nama **bye.sh**, dan tuliskan sintaks seperti dibawah ini: Save script yang ada buat dan jalankan dengan mengetikkan **bash bye.sh**.
-  ![bye.sh](/images/014.PNG)
+16.	Terakhir, untuk mematikan router dan client jangan langsung di close. Ketikkan **halt** di semua router dan client untuk mematikkannya. Atau buat script dengan ekstensi .sh supaya mempermudah kalian dalam mematikannya. Misal buat script dengan nama **bye.sh**, dan tuliskan sintaks seperti dibawah ini: Save script yang ada buat dan jalankan dengan mengetikkan **bash bye.sh**.<br>
+  ![bye.sh](/images/014.PNG)<br>
   **Keterangan**: <br>
     - **Netmask**: Netmask adalah mask 32-bit yang digunakan untuk membagi alamat IP menjadi subnet dan menentukan host yang tersedia pada jaringan.<br>
     - **IP Tuntap**: TUN yang merupakan kependekan dari Tunneling mensimulasikan layer 3, sedangkan TAP yang berarti Network Tap mensimulasikan layer 2. TUN berfungsi untuk routing, sedangkan TAP berfungsi sebagai network bridge.<br>
