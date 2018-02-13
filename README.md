@@ -135,7 +135,7 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
 11.	Coba cek IP pada setiap router dan host dengan mengetikkan **ifconfig**. Jika sudah mendapatkan IP seperti gambar dibawah, setting IP yang kalian lakukan benar.<br>
   ![ifconfig](/images/011a.PNG)<br>
 12.	Topologi yang kalian buat sudah bisa berjalan secara lokal, tetapi kalian belum bisa mengakses jaringan keluar. Ketikkan **```iptables –t nat –A POSTROUTING –o eth0 –j MASQUERADE –s 192.168.0.0/16```** pada router **GEBANG**.<br>
-  ![iptables](/images/012.PNG)<br>
+  ![iptables postrouting](/images/012b.PNG)<br>
 13.	Coba test di semua router dan client dengan melakukan **ping its.ac.id** atau **ping 10.151.36.1** dari masing-masing host untuk mengecek apakah pengaturan anda benar atau tidak.<br>
   ![iptables](/images/013.PNG)<br>
 14.	Export proxy di uml kalian terlebih dahulu dengan syntax seperti dibawah ini:<br>
