@@ -133,10 +133,9 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **Ip_eth1_GEBANG_tiap_kelompok** = NID_DMZ_tiap_kelompok + 1<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **Ip_KLAMPIS_tiap_kelompok** = NID_DMZ_tiap_kelompok + 2<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **Ip_PUCANG_tiap_kelompok** = NID_DMZ_tiap_kelompok + 3<br>
-    <br><br>
   **Penjelasan pengertian**:<br>
-    **DMZ**: DMZ adalah kependekan dari Demilitarized Zone, suatu area yang digunakan berinteraksi dengan pihak luar. Di dalam jaringan komputer, DMZ merupakan suatu sub network yang terpisah dari sub network internal untuk keperluan keamanan.<br>
-    **Gateway:** suatu jalur pada jaringan yang harus dilewati paket-paket data untuk dapat masuk ke jaringan yang lain.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **DMZ**: DMZ adalah kependekan dari Demilitarized Zone, suatu area yang digunakan berinteraksi dengan pihak luar. Di dalam jaringan komputer, DMZ merupakan suatu sub network yang terpisah dari sub network internal untuk keperluan keamanan.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Gateway:** suatu jalur pada jaringan yang harus dilewati paket-paket data untuk dapat masuk ke jaringan yang lain.<br>
 10.	Restart network pada setiap router dan host dengan mengetikkan **service networking restart** atau **/etc/init.d/networking restart**.<br>
 11.	Coba cek IP pada setiap router dan host dengan mengetikkan **ifconfig**. Jika sudah mendapatkan IP seperti gambar dibawah, setting IP yang kalian lakukan benar.<br>
   ![ifconfig](/images/011a.PNG)<br>
