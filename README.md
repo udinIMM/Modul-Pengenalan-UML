@@ -135,7 +135,7 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **Ip_PUCANG_tiap_kelompok** = NID_DMZ_tiap_kelompok + 3<br>
   **Penjelasan pengertian**:<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **DMZ**: DMZ adalah kependekan dari Demilitarized Zone, suatu area yang digunakan berinteraksi dengan pihak luar. Di dalam jaringan komputer, DMZ merupakan suatu sub network yang terpisah dari sub network internal untuk keperluan keamanan.<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Gateway:** suatu jalur pada jaringan yang harus dilewati paket-paket data untuk dapat masuk ke jaringan yang lain.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Gateway:** suatu jalur pada jaringan yang harus dilewati paket-paket data untuk dapat masuk ke jaringan yang lain.<br><br>
 10.	Restart network pada setiap router dan host dengan mengetikkan **service networking restart** atau **/etc/init.d/networking restart**.<br>
 11.	Coba cek IP pada setiap router dan host dengan mengetikkan **ifconfig**. Jika sudah mendapatkan IP seperti gambar dibawah, setting IP yang kalian lakukan benar.<br>
   ![ifconfig](/images/011a.PNG)<br>
@@ -147,7 +147,7 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
     - **Masquerade**: Digunakan untuk menyamarkan paket, misal mengganti alamat pengirim dengan alamat router.<br>
     - **s (Source Address)**: Spesifikasi pada *source*. *Address* bisa berupa nama jaringan, nama host, alamat IP.<br>
       **Sintaks pada IPTables: `iptables [-t table] command [match] [target/jump] [source address]`**<br>
-      **Contoh: iptables –t nat –A POSTROUTING –o eth0 –j MASQUERADE –s 192.168.0.0/16**<br>
+      **Contoh: iptables –t nat –A POSTROUTING –o eth0 –j MASQUERADE –s 192.168.0.0/16**<br><br>
 13.	Coba test di semua router dan client dengan melakukan **ping its.ac.id** atau **ping 10.151.36.1** dari masing-masing host untuk mengecek apakah pengaturan anda benar atau tidak.<br>
   ![iptables](/images/013.PNG)<br>
 14.	Export proxy di uml kalian terlebih dahulu dengan syntax seperti dibawah ini:<br>
