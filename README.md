@@ -74,6 +74,8 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
 8.	Hilangkan tanda pagar (#) pada bagian **net.ipv4.ip_forward=1**.<br>
   ![GEBANG sysctl](/images/010a.PNG)<br>
   Lalu ketikkan **sysctl –p** untuk mengaktifkan perubahan yang ada.<br>
+  **Keterangan:**<br>
+   - Dengan mengaktifkan fungsi “IP Forward” ini maka Linux nantinya dapat menentukan jalur mana yang dipilih untuk mencapai network tujuan.<br>
 9.	Setting IP di setiap router dan client dengan mengetikkan **nano /etc/network/interfaces**. Lalu seting IPnya sebagai berikut:<br>
   **Setting IP pada GEBANG (Sebagai Router)**.
   ```shell
@@ -131,11 +133,22 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **Ip_eth1_GEBANG_tiap_kelompok** = NID_DMZ_tiap_kelompok + 1<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **Ip_KLAMPIS_tiap_kelompok** = NID_DMZ_tiap_kelompok + 2<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **Ip_PUCANG_tiap_kelompok** = NID_DMZ_tiap_kelompok + 3<br>
+    <br><br>
+  **Penjelasan pengertian**:<br>
+    **DMZ**: DMZ adalah kependekan dari Demilitarized Zone, suatu area yang digunakan berinteraksi dengan pihak luar. Di dalam jaringan komputer, DMZ merupakan suatu sub network yang terpisah dari sub network internal untuk keperluan keamanan.<br>
+    **Gateway:** suatu jalur pada jaringan yang harus dilewati paket-paket data untuk dapat masuk ke jaringan yang lain.<br>
 10.	Restart network pada setiap router dan host dengan mengetikkan **service networking restart** atau **/etc/init.d/networking restart**.<br>
 11.	Coba cek IP pada setiap router dan host dengan mengetikkan **ifconfig**. Jika sudah mendapatkan IP seperti gambar dibawah, setting IP yang kalian lakukan benar.<br>
   ![ifconfig](/images/011a.PNG)<br>
-12.	Topologi yang kalian buat sudah bisa berjalan secara lokal, tetapi kalian belum bisa mengakses jaringan keluar. Ketikkan **```iptables –t nat –A POSTROUTING –o eth0 –j MASQUERADE –s 192.168.0.0/16```** pada router **GEBANG**.<br>
+12.	Topologi yang kaliancmd buat sudah bisa berjalan secara lokal, tetapi kalian belum bisa mengakses jaringan keluar. Ketikkan **```iptables –t nat –A POSTROUTING –o eth0 –j MASQUERADE –s 192.168.0.0/16```** pada router **GEBANG**.<br>
   ![iptables postrouting](/images/012b.PNG)<br>
+  **Keterangan**: <br>
+    - **Iptables**: Iptables merupakan suatu tools dalam sistem operasi linux yang berfungsi sebagai filter terhadap lalu lintas data. Dengan iptables inilah kita akan mengatur semua lalulintas dalam komputer, baik yang masuk, keluar, maupun yang sekedar melewati komputer kita. Untuk penjelasan lebih lanjut nanti akan kita bahas di modul 5.<br>
+    - **NAT (Network Address Translation)**: suatu metode penafsiran alamat jaringan yang digunakan untuk menghubungkan lebih dari satu komputer ke jaringan internet dengan menggunakan satu alamat IP.<br>
+    - **Masquerade**: Digunakan untuk menyamarkan paket, misal mengganti alamat pengirim dengan alamat router.<br>
+    - **s (Source Address)**: Spesifikasi pada *source*. *Address* bisa berupa nama jaringan, nama host, alamat IP.<br>
+      **Sintaks pada IPTables: `iptables [-t table] command [match] [target/jump] [source address]`**<br>
+      **Contoh: iptables –t nat –A POSTROUTING –o eth0 –j MASQUERADE –s 192.168.0.0/16**<br>
 13.	Coba test di semua router dan client dengan melakukan **ping its.ac.id** atau **ping 10.151.36.1** dari masing-masing host untuk mengecek apakah pengaturan anda benar atau tidak.<br>
   ![iptables](/images/013.PNG)<br>
 14.	Export proxy di uml kalian terlebih dahulu dengan syntax seperti dibawah ini:<br>
@@ -148,10 +161,6 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
   **Keterangan**: <br>
     - **Netmask**: Netmask adalah mask 32-bit yang digunakan untuk membagi alamat IP menjadi subnet dan menentukan host yang tersedia pada jaringan.<br>
     - **IP Tuntap**: TUN yang merupakan kependekan dari Tunneling mensimulasikan layer 3, sedangkan TAP yang berarti Network Tap mensimulasikan layer 2. TUN berfungsi untuk routing, sedangkan TAP berfungsi sebagai network bridge.<br>
-    - **DMZ**: DMZ adalah kependekan dari Demilitarized Zone, suatu area yang digunakan berinteraksi dengan pihak luar. Di dalam jaringan komputer, DMZ merupakan suatu sub network yang terpisah dari sub network internal untuk keperluan keamanan.<br>
-    - **Iptables**: Iptables merupakan suatu tools dalam sistem operasi linux yang berfungsi sebagai filter terhadap lalu lintas data. Dengan iptables inilah kita akan mengatur semua lalulintas dalam komputer, baik yang masuk, keluar, maupun yang sekedar melewati komputer kita. Untuk penjelasan lebih lanjut nanti akan kita bahas di modul 5.<br>
-      **Sintaks pada IPTables: `iptables [-t table] command [match] [target/jump]`**<br>
-      **Contoh: iptables –t nat –A POSTROUTING –o eth0 –j MASQUERADE**<br>
 # **PEMBAGIAN NID TUNTAP DAN NID DMZ**
 ### KELAS A
   KELOMPOK | NID TUNTAP | NID DMZ
