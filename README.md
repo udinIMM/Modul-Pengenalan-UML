@@ -134,8 +134,10 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **Ip_KLAMPIS_tiap_kelompok** = NID_DMZ_tiap_kelompok + 2<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **Ip_PUCANG_tiap_kelompok** = NID_DMZ_tiap_kelompok + 3<br>
   **Penjelasan pengertian**:<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **DMZ**: DMZ adalah kependekan dari Demilitarized Zone, suatu area yang digunakan berinteraksi dengan pihak luar. Di dalam jaringan komputer, DMZ merupakan suatu sub network yang terpisah dari sub network internal untuk keperluan keamanan.<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Gateway:** suatu jalur pada jaringan yang harus dilewati paket-paket data untuk dapat masuk ke jaringan yang lain.<br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **IP Tuntap**: TUN yang merupakan kependekan dari Tunneling mensimulasikan layer 3, sedangkan TAP yang berarti Network Tap mensimulasikan layer 2. TUN berfungsi untuk routing, sedangkan TAP berfungsi sebagai network bridge.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Netmask**: Netmask adalah mask 32-bit yang digunakan untuk membagi alamat IP menjadi subnet dan menentukan host yang tersedia pada jaringan.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Gateway**: suatu jalur pada jaringan yang harus dilewati paket-paket data untuk dapat masuk ke jaringan yang lain.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **DMZ**: DMZ adalah kependekan dari Demilitarized Zone, suatu area yang digunakan berinteraksi dengan pihak luar. Di dalam jaringan komputer, DMZ merupakan suatu sub network yang terpisah dari sub network internal untuk keperluan keamanan.<br><br>
 10.	Restart network pada setiap router dan host dengan mengetikkan **service networking restart** atau **/etc/init.d/networking restart**.<br>
 11.	Coba cek IP pada setiap router dan host dengan mengetikkan **ifconfig**. Jika sudah mendapatkan IP seperti gambar dibawah, setting IP yang kalian lakukan benar.<br>
   ![ifconfig](/images/011a.PNG)<br>
@@ -157,9 +159,7 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
 15.	Setelah itu, lakukan update pada semua router dan host dengan mengetikkan **apt-get update**.<br>
 16.	Terakhir, untuk mematikan router dan client jangan langsung di close. Ketikkan **halt** di semua router dan client untuk mematikkannya. Atau buat script dengan ekstensi .sh supaya mempermudah kalian dalam mematikannya. Misal buat script dengan nama **bye.sh**, dan tuliskan sintaks seperti dibawah ini: Save script yang ada buat dan jalankan dengan mengetikkan **bash bye.sh**.<br>
   ![bye.sh](/images/014.PNG)<br>
-  **Keterangan**: <br>
-    - **Netmask**: Netmask adalah mask 32-bit yang digunakan untuk membagi alamat IP menjadi subnet dan menentukan host yang tersedia pada jaringan.<br>
-    - **IP Tuntap**: TUN yang merupakan kependekan dari Tunneling mensimulasikan layer 3, sedangkan TAP yang berarti Network Tap mensimulasikan layer 2. TUN berfungsi untuk routing, sedangkan TAP berfungsi sebagai network bridge.<br>
+  
 # **PEMBAGIAN NID TUNTAP DAN NID DMZ**
 ### KELAS A
   KELOMPOK | NID TUNTAP | NID DMZ
