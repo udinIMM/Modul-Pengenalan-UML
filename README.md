@@ -153,9 +153,9 @@ UML (User Mode Linux) adalah sebuah virtual sistem dari linux yang memungkinkan 
 13.	Coba test di semua router dan client dengan melakukan **ping its.ac.id** atau **ping 10.151.36.1** dari masing-masing host untuk mengecek apakah pengaturan anda benar atau tidak.<br>
   ![iptables](/images/013.PNG)<br>
 14.	Export proxy di uml kalian terlebih dahulu dengan syntax seperti dibawah ini:<br>
-  `export http_proxy=”http://`**[emailitsanda]**`%40`**mhs.if.its.ac.id**`:`**[passwordemail]**`@`**proxy.its.ac.id**`:`**8080**`”;`<br>
-  `export https_proxy=”http://`**[emailitsanda]**`%40`**mhs.if.its.ac.id**`:`**[passwordemail]**`@`**proxy.its.ac.id**`:`**8080**`”;`<br>
-  `export ftp_proxy=”http://`**[emailitsanda]**`%40`**mhs.if.its.ac.id**`:`**[passwordemail]**`@`**proxy.its.ac.id**`:`**8080**`”;`<br>
+  `export http_proxy="http://`**[emailitsanda]**`%40`**mhs.if.its.ac.id**`:`**[passwordemail]**`@`**proxy.its.ac.id**`:`**8080**`";`<br>
+  `export https_proxy="http://`**[emailitsanda]**`%40`**mhs.if.its.ac.id**`:`**[passwordemail]**`@`**proxy.its.ac.id**`:`**8080**`";`<br>
+  `export ftp_proxy="http://`**[emailitsanda]**`%40`**mhs.if.its.ac.id**`:`**[passwordemail]**`@`**proxy.its.ac.id**`:`**8080**`";`<br>
 15.	Setelah itu, lakukan update pada semua router dan host dengan mengetikkan **apt-get update**.<br>
 16.	Terakhir, untuk mematikan router dan client jangan langsung di close. Ketikkan **halt** di semua router dan client untuk mematikkannya. Atau buat script dengan ekstensi .sh supaya mempermudah kalian dalam mematikannya. Misal buat script dengan nama **bye.sh**, dan tuliskan sintaks seperti dibawah ini: Save script yang ada buat dan jalankan dengan mengetikkan **bash bye.sh**.<br>
   ![bye.sh](/images/014.PNG)<br>
